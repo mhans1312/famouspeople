@@ -4,7 +4,7 @@ import './header.css'
 class Header extends Component {
     render(){
         return (
-            <header>
+            <header className="App-header">
                 <h1>Famous People App!</h1>
             </header>
         )
