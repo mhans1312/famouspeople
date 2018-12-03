@@ -3,6 +3,8 @@ import './App.css';
 import Header from '../header/header';
 import FamousPerson from '../famousperson/famous'
 import FamousList from '../FamousList/famouslist'
+import AboutPage from '../AboutPage/AboutPage';
+import {HashRouter as Router, Route, Link} from 'react-router-dom';
 
 class App extends Component {
 
@@ -38,13 +40,21 @@ submitFamous = (event) => {
 
   render() {
     return (
+      <Router>
       <div>
+        <nav>
+          <ul>
+            <li><Link to="/AboutPage">About Page</Link></li>
+          </ul>
+        </nav>
         <Header />
+        <Route exact path="/AboutPage" Component={AboutPage} />
         <FamousPerson submitFamous={this.submitFamous}
           handleChangeFor={this.handleChangeFor}
           newFamous={this.state.newFamous} />
         <FamousList list={this.state.famousList} />
       </div>
+      </Router>
     );
   }
 }
